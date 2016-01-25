@@ -62,13 +62,13 @@ def getTime(bot, trigger):
 def siteInfo(bot, trigger):
     """Info command that prints out the site/forum links.
     """
-    info(bot, trigger, 'HH Website: http://goo.gl/fmjocD  ::  HH Forums: http://goo.gl/NuArvD')
+    info(bot, trigger, 'HMH Website: http://goo.gl/fmjocD  ::  HMH Forums: http://goo.gl/X5JDvT')
 
 @command('old', 'archive', hide=False, cooldown=10)
 def archiveInfo(bot, trigger):
     """Info command that prints out the forum/youtube archive links.
     """
-    info(bot, trigger, 'Forum Archive (with notes): http://goo.gl/8ouung   ::   YouTube Archive: http://goo.gl/u3hKKj')
+    info(bot, trigger, 'Annotated Episode Guide: https://goo.gl/O5ljen   ::   YouTube Archive: http://goo.gl/u3hKKj')
 
 @command('wrist', 'wrists', 'braces', 'hands', hide=False, cooldown=10)
 def wristInfo(bot, trigger):
@@ -122,7 +122,7 @@ def buyInfo(bot, trigger):
 def gameInfo(bot, trigger):
     """Info command that displays basic information about the game being built.
     """
-    info(bot, trigger, "Handmade hero is a 2Dish top-down game inspired by classic Zelda games and modern games like the Binding of Isaac. The entire development of the game is being catalogued in these streams. (More: !art, !lang)")
+    info(bot, trigger, "Handmade Hero is a 2Dish top-down game inspired by classic Zelda games and modern games like The Binding of Isaac. The entire development of the game is being catalogued in these streams. (More: !art, !lang)")
 
 @command('friday', hide=True, cooldown=10)
 def fridays(bot, trigger):
@@ -205,11 +205,17 @@ def usedBuildBatchInfo(bot, trigger):
     """
     info(bot, trigger, "On windows, Casey compiles with MSVC from a batch script, also called by Emacs for rebuilds. The program builds as a single translation unit (STU) using #include to compile all involved files in one go, which we call a unity or STU build. The script needs a change only when adding a dependency. See also: Day 011, http://goo.gl/8ATplA (More: !editor, !compiler)")
 
-@command('render', 'opengl', 'd3d', hide=False, cooldown=10)
+@command('render', 'renderer', 'd3d', hide=False, cooldown=10)
 def renderInfo(bot, trigger):
     """Command to give render information to the chat target
     """
-    info(bot, trigger, "We are currently using software rendering in order to implement our own renderer. Ultimately the game will take advantage of hardware acceleration (i.e. using OpenGL, Direct3D, etc.) to maximize performance.")
+    info(bot, trigger, "We are currently using software rendering in order to implement our own renderer. Ultimately the game will take advantage of hardware acceleration (i.e. using OpenGL, Direct3D, etc.) to maximize performance. See also !opengl.")
+
+@command('opengl', 'ogl', hide=False, cooldown=10)
+def renderInfo(bot, trigger):
+    """Command to give openGL information to the chat target
+    """
+    info(bot, trigger, "While Casey will rewrite the renderer using OpenGL in the future - see !render - the current OpenGL code is to allow for vsync, giving a more predictable frame time.")
 
 @command('learning', 'learnProgramming', 'learn', hide=False, cooldown=10)
 def gettingStartedLearning(bot, trigger):
@@ -221,7 +227,7 @@ def gettingStartedLearning(bot, trigger):
 def learningC(bot, trigger):
     """Command describing how you can begin learning C, like this
     """
-    info(bot, trigger, "One way to start programming in this manner is to watch the Intro to C series on www.youtube.com/handmadeheroarchive to get a general feel of things. Later, read 'The C Programming Language' by Brian W. Kernighan and Dennis M. Ritchie and work through all the exercises, LearnXinYminutes can be used to see the basics of c http://goo.gl/qmluuM. The most important part is to start coding and to make lots of things in code. Good luck!")
+    info(bot, trigger, "One way to start programming in this manner is to watch the Intro to C series at https://hero.handmadedev.org/jace/guide/ to get a general feel of things. Later, read 'The C Programming Language' by Brian W. Kernighan and Dennis M. Ritchie and work through all the exercises, LearnXinYminutes can be used to see the basics of C http://goo.gl/qmluuM. The most important part is to start coding and to make lots of things in code. Good luck!")
 
 @command("lib", "library", "api", "engine", hide=False, cooldown=10)
 def libCommand(bot, trigger):
@@ -265,7 +271,7 @@ def compressionOriented(bot, trigger):
 
 @command("break", "vacation", hide=True, hideAlways=True, cooldown=10)
 def breakInfo(bot, trigger):
-    info(bot, trigger, "Handmade Hero is not currently on break.")
+    info(bot, trigger, "Handmade Hero is on break from Oct 30 to Nov 16 as Casey is travelling.")
 
 @command("jeffandcasey", "jeffandcaseyshow", hide=True, hideAlways=False, cooldown=10)
 def jeffandcasey(bot, trigger):
@@ -297,11 +303,11 @@ def rules(bot, trigger):
 
 @command("userlist", "users", hide=False, cooldown=10)
 def userlist(bot, trigger):
-    info(bot, trigger, "Are you on IRC and missing a user list? Use the raw command in your IRC client (/raw or /quote usually, or just /cap) to issue the following command: CAP REQ :twitch.tv/membership For the change to take effect you will need to use /cycle (if supported) or /disconnect and /connect. It is recommended to add this to your connect command.")
+    info(bot, trigger, "Are you on IRC and missing a user list? Use the raw command in your IRC client (/raw or /quote usually, or just /cap) to issue the following command: CAP REQ :twitch.tv/membership For the change to take effect you will need to use /cycle (if supported) or /part and /join in that order. It is recommended to add this to your connect command.")
 
 @command("never", "neverabout", hide=False, cooldown=10)
 def never(bot, trigger):
-    info(bot, trigger, "Programming is not really about the code. See moderator AbnerCoimbre's informal lecture on the subject here: http://y2u.be/Lzc3HcIgXis or a more extensive talk from Mike Action here: http://y2u.be/rX0ItVEVjHc")
+    info(bot, trigger, "Programming is not really about the code. See moderator AbnerCoimbre's informal lecture on the subject here: http://y2u.be/Lzc3HcIgXis or a more extensive talk from Mike Acton here: http://y2u.be/rX0ItVEVjHc")
 
 @command("design", "gamedesign", hide=False, cooldown=10)
 def design(bot, trigger):
@@ -311,7 +317,16 @@ def design(bot, trigger):
 def manifesto(bot, trigger):
     info(bot, trigger, "You can read The Handmade Manifesto here: http://handmadedev.org/manifesto/")
 
+@command("hmhcon", "con", "convention", hide=False, cooldown=10)
+def hmhcon(bot, trigger):
+    info(bot, trigger, "HandmadeCon 2015 will be held on Krampusnacht in Seattle. More specifically: Saturday, December 5th, 2015, from 10AM to 6PM PST, in the auditorium at the central branch of the Seattle Public Library. There are 275 tickets total, at $45/ticket (or $35/ticket if ordered before November 5th). Read the latest info at http://handmadecon.org")
+
+
 #TODO(soul): Maybe we want to change the wording of this? What do you guys think?
 @command("ask","question","a2a","asktoask","ask2ask", hide=False, cooldown=10)
 def ask2ask(bot, trigger):
     info(bot, trigger, "Don't ask to ask a question, simply ask your question. Many regulars use IRC, so we will see your question eventually. If you can't stay long, you may also ask your question on the !forum")
+
+@command("creative", "category", hide=False, cooldown=10)
+def creativeAsk(bot, trigger):
+    info(bot, trigger, "Handmade Hero is being streamed in the Creative section of twitch because twitch administration asked Casey to do so. It is unclear if there is a larger reason behind the decision.")

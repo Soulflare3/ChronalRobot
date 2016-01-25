@@ -1,4 +1,4 @@
-ChronalRobot
+hmh_bot
 ============
 
 Python module for the Willie IRC bot used in the Handmade Hero twitch chat.
@@ -12,7 +12,7 @@ The config options used by the bot are available in `handmade.cfg`. Please refer
 Please refer to the [forum thread](https://forums.handmadehero.org/index.php/forum?view=topic&catid=5&id=65) and Issues page for discussion about features to add and updates.
 
 Installation
-----
+============
 * Clone the repository and cd into the directory.
 * Read through `sampleconfig.txt` and fill in necessary information
 * Rename the config file, e.g. `handmade.cfg`
@@ -31,3 +31,5 @@ Robot requires the following libraries to be installed: willie, arrow, parsedate
 To install them, issue following command:
 
 `sudo pip install willie arrow parsedatetime sqlobject`
+
+NOTE: WILLIE became SOPAL(https://github.com/sopel-irc/sopel) we are not upgrading for the time being

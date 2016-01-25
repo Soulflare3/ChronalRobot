@@ -41,6 +41,35 @@ def beepBoop(bot, trigger):
     "Fatal Error: Sarcastic response not found"
     ]
     bot.say(random.choice(responses))
+    
+@whitelisted_streamtime
+@command('8', '8ball', hide=True)
+def eightball(bot, trigger):
+    """Easter egg command that prints out some 8ball responses
+    """
+    responses = [
+        "It is certain",
+        "It is decidedly so",
+        "Without a doubt",
+        "Yes, definitely",
+        "You may rely on it",
+        "As I see it, yes",
+        "Most likely",
+        "Outlook good",
+        "Yes",
+        "Signs point to yes",
+        "Reply hazy try again",
+        "Ask again later",
+        "Better not tell you now",
+        "Cannot predict now",
+        "Concentrate and ask again",
+        "Don't count on it",
+        "My reply is no",
+        "My sources say no",
+        "Outlook not so good",
+        "Very doubtful"
+    ]
+    bot.say(random.choice(responses))
 
 @adminonly
 @command('flame', hide=True, hideAlways=True)
@@ -52,6 +81,17 @@ def flameWar(bot, trigger):
         badLanguage(bot, trigger)
     else:
         bestEditor(bot, trigger)
+
+@whitelisted_streamtime
+@command('blame', "satya", hide=True, hideAlways=True)
+def SatyaNadella(bot, trigger):
+    """Easter egg command that blames the MS CEO for the current predicament"""
+
+    if (trigger and trigger.group(2)):
+        that = trigger.group(2).strip()
+        bot.say("\x01ACTION blames Satya Nadella %s.\x01" % that)
+    else:
+        bot.say("\x01ACTION blames Satya Nadella.\x01")
 
 @adminonly
 @command('throwdown', 'badlanguage', hide=True, hideAlways=True)
@@ -167,6 +207,10 @@ def rollNumber(bot, trigger):
         if (diceFaces > 100):
             bot.say("@%s: I rolled the sphere, and it rolled off the table." % (trigger.nick))
             return
+        
+        if (diceFaces == 7):
+            bot.say("@%s: [0], for a total of 0" % (trigger.nick))
+            return
 
         modifier = 0
         plusRegex = re.compile('\+\s*(\d+)')
@@ -230,3 +274,18 @@ def tenCommandmentsMessage(bot, trigger):
     """Command to list the 0x10 commandments"
     """
     bot.say("Thou must read and follow these 0x10 Commandments: http://goo.gl/aoQVYT")
+
+@command("o/", hide=True)
+def MorningYou(bot, trigger) :
+    if(trigger) :
+        args = trigger.group(2)
+        if (args) :
+            bot.say("Good morning @%s!" % (args))
+
+@command("UGT", hide=True)
+def ExplainUGT(bot, trigger):
+    info(bot, trigger, "Use UGT to greet people! It's always morning when you arrive, and always night when you leave ;) You can also use !o/ and !\o/.")
+
+@command("\\\\o/", hide=True)
+def MorningAll(bot, trigger):
+    bot.say("Good morning, everyone!")
